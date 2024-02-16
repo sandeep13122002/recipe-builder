@@ -2,6 +2,7 @@ import express from "express";
 import cors from 'cors'
 import mongoose from 'mongoose'
 import {UserRouter} from './routes/user.js'
+import { recipeRouter } from "./routes/recipes.js";
 import bodyParser from "body-parser";
 const app=express();
 app.use(bodyParser.urlencoded({
@@ -13,6 +14,7 @@ app.use(cors());
 
 console.log("heloo")
 app.use("/auth",UserRouter);
+app.use("/recipes",recipeRouter);
 
 app.get('/', (req, res) => {
     res.send('Hello World!')
